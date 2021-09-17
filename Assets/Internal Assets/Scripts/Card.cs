@@ -7,6 +7,12 @@ public class Card : MonoBehaviour
     [SerializeField] ScriptableCard card_data;
     [SerializeField] GameObject front_sprite;
     [SerializeField] GameObject back_sprite;
+
+    [ExecuteInEditMode]
+    private void OnDrawGizmos()  //Editor Card Generator.
+    {
+        GenerateFromData();
+    }
     public ScriptableCard GetCardData
     {
         get
@@ -19,6 +25,7 @@ public class Card : MonoBehaviour
         front_sprite.GetComponent<SpriteRenderer>().sprite = card_data.CardFrontSide;
         back_sprite.GetComponent<SpriteRenderer>().sprite = card_data.CardBackSide;
     }
+
     void Start()
     {
         GenerateFromData();
