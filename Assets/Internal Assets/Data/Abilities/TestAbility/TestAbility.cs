@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "TestAbility")]
-public class TestAbility : PlayerCardAbility, IPlayerCardAbility
+public class TestAbility : CardAbility, ICardAbility
 {
     public override void UseAbility()
     {
@@ -12,7 +10,6 @@ public class TestAbility : PlayerCardAbility, IPlayerCardAbility
     }
     public override int CheckAbilityTurn()
     {
-        
         return 0;
     }
 }

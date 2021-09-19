@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c589fe47adf09c045b53c3e0edfac89f, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  card_name: 
-  sprite: {fileID: 0}
+  card_name: Test
+  sprite: {fileID: 21300000, guid: ead4eb231b41d7f489fca59453f8b6f0, type: 3}
   slot:
-  - war_points: 2
-    coins: 4
+  - war_points: 3
+    coins: 3
     ability: {fileID: 11400000, guid: b8c156384341a734d8527143b50d6b2e, type: 2}

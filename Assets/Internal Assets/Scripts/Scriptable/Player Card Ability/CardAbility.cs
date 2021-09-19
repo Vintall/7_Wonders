@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable/PlayerCardAbility")]
-public class PlayerCardAbility: ScriptableObject, IPlayerCardAbility
+public class CardAbility : ScriptableObject, ICardAbility
 {
     [SerializeField] Sprite sprite;
 

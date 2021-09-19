@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be08d4bddb2c3c4b8945ccb5cb08b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: f8b07a37218837c45a999971b68d1199, type: 2}
   sprite: {fileID: 3849620244445125024}
 --- !u!1 &3849620244445125024
 GameObject:

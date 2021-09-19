@@ -9,7 +9,7 @@ public class Structs
     {
         [Range(0, 5), SerializeField] int war_points;
         [Range(0, 5), SerializeField] int coins;
-        [SerializeField] PlayerCardAbility ability;
+        [SerializeField] CardAbility ability;
 
         public void UseAbility()
         {

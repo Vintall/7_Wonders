@@ -10,6 +10,11 @@ public class PlayerCard : MonoBehaviour
     {
         sprite.GetComponent<SpriteRenderer>().sprite = data.Sprite;
     }
+    [ExecuteInEditMode]
+    private void OnDrawGizmos()  //Editor Card Generator
+    {
+        GenerateFromData();
+    }
     private void Start()
     {
         
