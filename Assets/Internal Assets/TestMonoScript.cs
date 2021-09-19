@@ -1,8 +1,6 @@
-﻿//Начинаем с добавления необходимого пространства имён
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-//Этим атрибутом мы объявляем какой компонент подвергнется редактированию
 [CustomEditor(typeof(TestComponent))]
 [CanEditMultipleObjects]
 

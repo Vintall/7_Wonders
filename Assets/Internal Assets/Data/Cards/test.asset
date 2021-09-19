@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a72128763b723e4f9070ad670fb2960, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  require:
-  - value_type: 1
-    type: 9
-  - value_type: 0
-    type: 9
-  asd: {fileID: 11500000, guid: e6152e1345dcc4c4ea07d17676989561, type: 3}
   card_front_side: {fileID: 21300000, guid: f1cd39299af8c604b9846770113045ae, type: 3}
   card_back_side: {fileID: 21300000, guid: 538b1a7332cd5b5428a1bf19dd577668, type: 3}
   age: 1
   card_type: 3
   num_of_player: 3
   card_name: CARAVANSERY
-  technology_require: 3
   technology_give: 
+  science_give: 3
+  require:
+  - value_type: 1
+    technology: 0
+    resources: 0
+    count: 0
+  - value_type: 6
+    technology: 0
+    resources: 0
+    count: 0

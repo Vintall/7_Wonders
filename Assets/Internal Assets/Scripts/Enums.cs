@@ -21,6 +21,7 @@ public class Enums
     }
     public enum Technology
     {
+        None,
         Hammer,
         Water,
         Camel,   
@@ -48,6 +49,7 @@ public class Enums
     }
     public enum Resources
     {
+        None,
         Wood,
         Stone,
         Brick,
@@ -56,5 +58,21 @@ public class Enums
         Paper,
         Silk
     }
-    
+    public enum Science
+    {
+        None,
+        Engineering,
+        Chronicle,
+        Geometry
+    }
+    public enum GameValueType
+    {
+        None,
+        Coin,
+        Technology,
+        WarPoint,
+        WictoryPoint,
+        Science,
+        Resource
+    }
 }

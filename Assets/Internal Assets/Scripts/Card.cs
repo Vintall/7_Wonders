@@ -5,8 +5,14 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     [SerializeField] ScriptableCard card_data;
-    [SerializeField] GameObject front_sprite;
-    [SerializeField] GameObject back_sprite;
+    GameObject front_sprite;
+    GameObject back_sprite;
+
+    private void Awake()
+    {
+        front_sprite = transform.GetChild(0).gameObject;
+        back_sprite = transform.GetChild(1).gameObject;
+    }
 
     [ExecuteInEditMode]
     private void OnDrawGizmos()  //Editor Card Generator.
@@ -29,10 +35,5 @@ public class Card : MonoBehaviour
     void Start()
     {
         GenerateFromData();
-    }
-
-    void Update()
-    {
-        
     }
 }
