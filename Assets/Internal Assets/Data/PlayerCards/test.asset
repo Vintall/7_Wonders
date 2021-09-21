@@ -15,6 +15,11 @@ MonoBehaviour:
   card_name: Test
   sprite: {fileID: 21300000, guid: ead4eb231b41d7f489fca59453f8b6f0, type: 3}
   slot:
-  - war_points: 3
-    coins: 3
-    ability: {fileID: 11400000, guid: b8c156384341a734d8527143b50d6b2e, type: 2}
+  - ability:
+    - {fileID: 11400000, guid: b8c156384341a734d8527143b50d6b2e, type: 2}
+    require_to_unlock:
+    - value_type: 0
+      technology: 0
+      resources: 0
+      count: 0
+    is_unlock: 0

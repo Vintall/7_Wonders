@@ -8,7 +8,7 @@ public class ScriptablePlayerCard : ScriptableObject
     [SerializeField] string card_name;
     [SerializeField] Sprite sprite;
     [SerializeField] Structs.PlayerCardSlot[] slot;
-
+    
     public Structs.PlayerCardSlot[] Slots
     {
         get
@@ -16,8 +16,6 @@ public class ScriptablePlayerCard : ScriptableObject
             return slot;
         }
     }
-    
-    
     public string CardName
     {
         get

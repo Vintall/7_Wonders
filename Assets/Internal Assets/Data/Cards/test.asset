@@ -21,11 +21,17 @@ MonoBehaviour:
   technology_give: 
   science_give: 3
   require:
-  - value_type: 1
-    technology: 0
-    resources: 0
+  - value_type: 6
+    technology: 1
+    resources: 5
     count: 0
   - value_type: 6
     technology: 0
     resources: 0
     count: 0
+  ability:
+  - {fileID: 11400000, guid: 006b1f816fcee454eaf9c096a137763f, type: 2}
+  - {fileID: 11400000, guid: 006b1f816fcee454eaf9c096a137763f, type: 2}
+  - {fileID: 11400000, guid: 006b1f816fcee454eaf9c096a137763f, type: 2}
+  - {fileID: 11400000, guid: 1422c483d4ee549478b288369d2c5fd3, type: 2}
+  - {fileID: 11400000, guid: 5673ba1004d8c3a4aaec83f8323e23e6, type: 2}

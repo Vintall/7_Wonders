@@ -9,7 +9,7 @@ public class CardData : MonoBehaviour
     {
         
     }
-
+    //asd
     // Update is called once per frame
     void Update()
     {

@@ -6,6 +6,7 @@ public class GameData : MonoBehaviour
 {
     [SerializeField] CardData card_data;
     [SerializeField] TechnologyData technology_data;
+    
     public static GameData instance;
 
     public CardData CardData

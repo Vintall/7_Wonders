@@ -14,6 +14,7 @@ public class Enums
     {
         Gray,
         Brown,
+        Green,
         Red,
         Yellow,
         Blue,
@@ -21,31 +22,31 @@ public class Enums
     }
     public enum Technology
     {
-        None,
-        Hammer,
-        Water,
-        Camel,   
-        Canopy,  
-        Horseshoe,
-        Bowl,
-        Target,
-        Kettle,
-        Scales,
-        Book,
-        Beacon,
-        Barrel,
-        Electricity,
-        Torch,
-        Saw,
-        Astronomy,
-        Government,
-        Scroll,
-        Harp,
-        Feather,
-        Castle,
-        Сavalry,
-        Entertainment,
-        Priest
+        None = -1,
+        Astronomy = 0,
+        Barrel = 1,
+        Beacon = 2,
+        Book = 3,
+        Bowl = 4,
+        Camel = 5,   
+        Canopy = 6,  
+        Castle = 7,
+        Electricity = 8,
+        Entertainment = 9,
+        Feather = 10,
+        Government = 11,
+        Hammer = 12,
+        Harp = 13,
+        Horseshoe = 14,
+        Kettle = 15,
+        Priest = 16,
+        Saw = 17,
+        Scales = 18,
+        Scroll = 19,
+        Target = 20,
+        Torch = 21,
+        Water = 22,
+        Сavalry = 23
     }
     public enum Resources
     {
@@ -74,5 +75,13 @@ public class Enums
         WictoryPoint,
         Science,
         Resource
+    }
+    public enum AbilityUseTime
+    {
+        None,
+        StartAge,
+        EndAge,
+        EveryTurn,
+        OnBuy
     }
 }

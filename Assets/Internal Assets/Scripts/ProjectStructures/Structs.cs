@@ -7,13 +7,25 @@ public class Structs
     [System.Serializable]
     public struct PlayerCardSlot
     {
-        [Range(0, 5), SerializeField] int war_points;
-        [Range(0, 5), SerializeField] int coins;
-        [SerializeField] CardAbility ability;
-
+        [SerializeField] CardAbility[] ability;
+        [SerializeField] GameValueRequire[] require_to_unlock;
+        [SerializeField] bool is_unlock;
+        public bool IsUnlock
+        {
+            get
+            {
+                return is_unlock;
+            }
+        }
+        public void UseAbility(int num)
+        {
+            if (num >= 0 && num < ability.Length)
+                ability[num].UseAbility();
+        }
         public void UseAbility()
         {
-            ability.UseAbility();
+            foreach (CardAbility c_a in ability)
+                c_a.UseAbility();
         }
     }
     [System.Serializable]
