@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GiveSilk
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  ability_use_time: 2
-  resources: 7
+  ability_use_time: 3
+  resource: 7

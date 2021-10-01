@@ -60,14 +60,3 @@ public class ScriptableCard : ScriptableObject
         }
     }
 }
-
-[UnityEditor.CustomEditor(typeof(ScriptableCard), true)]
-public class TestEditorScripting : UnityEditor.Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        
-        UnityEditor.EditorGUILayout.LabelField("This is aaaaaaaaaaaaaaaaaaa");
-    }
-}

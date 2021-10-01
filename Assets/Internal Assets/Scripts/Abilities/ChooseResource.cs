@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable/Ability/ChooseResource")]
+[CreateAssetMenu(menuName = "Scriptable/Ability/Value/Choose/Resource")]
 public class ChooseResource : CardAbility, ICardAbility
 {
     [SerializeField] Enums.Resources[] resources_choose;

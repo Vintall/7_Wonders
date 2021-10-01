@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable/Ability/GiveResource")]
+[CreateAssetMenu(menuName = "Scriptable/Ability/Value/Give/Resource")]
 public class GiveResource : CardAbility, ICardAbility
 {
     [SerializeField] Enums.Resources resource;
