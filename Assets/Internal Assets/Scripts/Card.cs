@@ -11,6 +11,11 @@ public class Card : MonoBehaviour
         {
             return card_data;
         }
+        set
+        {
+            card_data = value;
+            GenerateFromData();
+        }
     }
     public CardSpriteLinker  SpriteLinker
     {

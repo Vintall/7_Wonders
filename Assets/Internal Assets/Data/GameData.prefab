@@ -54,6 +54,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6327005078130594644}
     m_Modifications:
+    - target: {fileID: 1297964983, guid: 3601bddeb21f200448f87f95005296cd, type: 3}
+      propertyPath: cards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297964983, guid: 3601bddeb21f200448f87f95005296cd, type: 3}
+      propertyPath: cards.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 05a560ec6c5bb3645bfe3020a8bd5f57, type: 2}
+    - target: {fileID: 1297964983, guid: 3601bddeb21f200448f87f95005296cd, type: 3}
+      propertyPath: cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c192ce779498e543a4c1a46ed0b74da, type: 2}
+    - target: {fileID: 1297964983, guid: 3601bddeb21f200448f87f95005296cd, type: 3}
+      propertyPath: cards.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f335e34df051dfe43b2d0d142450b529, type: 2}
     - target: {fileID: 6322762530125068736, guid: 3601bddeb21f200448f87f95005296cd, type: 3}
       propertyPath: m_Name
       value: CardData

@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class LobbyManager : MonoBehaviourPunCallbacks, IPunObservable
+public class LobbyManager : MonoBehaviourPunCallbacks
 {
     #region UIFields
     [SerializeField] GameObject text;
@@ -71,10 +71,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks, IPunObservable
             return;
         }
 
+        StartGame(); //REMOVE // TEST
+        
         if (room_players.IsAllPlayersReady)
         {
             Debug.Log("Successfully started the game");
+            //StartGame();
         }
+    }
+    void StartGame()
+    {
+        
+        PhotonNetwork.LoadLevel("Game");
     }
     public void ReadyButtonPressed()
     {
@@ -118,6 +126,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         room_players.AddPlayer(newPlayer);
         lobby_ui.RoomPanel.RefreshPlayers(room_players);
+        Debug.Log(newPlayer.ActorNumber);
     }
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
@@ -142,7 +151,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks, IPunObservable
         lobby_ui.CreateRoom();
         lobby_ui.RoomPanel.RefreshPlayers(room_players);
 
-        //PhotonNetwork.Instantiate("qweasd", new Vector3(Random.Range(-5, 5), 0, -7), Quaternion.identity);
+        PhotonNetwork.Instantiate("LobbyPlayerObject", new Vector3(Random.Range(-5, 5), 0, -7), Quaternion.identity);
+        Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);                                                                               //Remove
     }
     #endregion
     #region METHODS
@@ -190,22 +200,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (stream.IsReading)
         {
-
             room_players.SelfPlayerObject.IsPlayerReady = (bool)stream.ReceiveNext();
             string id = (string)stream.ReceiveNext();
 
-            //for (int i = 0; i < lobby_ui.RoomPanel.PlayerSlots.PlayerField.Length; i++)
-            //{
-            //    if (lobby_ui.RoomPanel.PlayerSlots.PlayerField[i].Player != null)
-            //        if (lobby_ui.RoomPanel.PlayerSlots.PlayerField[i].Player.UserId == id) //REMOVE
-            //        {
-            //            if (is_player_ready)
-            //                lobby_ui.RoomPanel.PlayerSlots.PlayerField[i].ChangeReadyMarkColor(Color.green);
-            //            else
-            //                lobby_ui.RoomPanel.PlayerSlots.PlayerField[i].ChangeReadyMarkColor(Color.red);
-            //            break;
-            //        }
-            //}
         }
     }
 }

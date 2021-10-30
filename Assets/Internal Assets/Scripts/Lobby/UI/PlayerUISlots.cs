@@ -13,24 +13,12 @@ public class PlayerUISlots : MonoBehaviour
             return player_field;
         }
     }
-    private void Start()
-    {
-        
-    }
     void DeactivateAllFields()
     {
         active_slots = 0;
         foreach (PlayerUISlot i in PlayerField)
             i.gameObject.SetActive(false);
     }
-    //public void RefreshSlots(Dictionary<int, Photon.Realtime.Player> players)
-    //{
-    //    DeactivateAllFields();
-    //    foreach(KeyValuePair<int, Photon.Realtime.Player> keyValue in players)
-    //    {
-    //        AddPlayer(keyValue.Value);
-    //    }
-    //}
     public void RefreshSlots(AllLobbyPlayers players)
     {
         DeactivateAllFields();

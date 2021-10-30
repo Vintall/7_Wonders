@@ -7,17 +7,27 @@ public class ScriptableCard : ScriptableObject
 {
     [SerializeField] Sprite card_front_side;
     [SerializeField] Sprite card_back_side; //Нужен ли back side, если я уже определяю эпоху карты.
-    
+
+    byte id; // from 0 to 255
     [SerializeField] Enums.Age age;
-    [SerializeField] Enums.CardType card_type;
+    [SerializeField] Enums.CardType type;
     [SerializeField] int num_of_player;
     [SerializeField] string card_name;
-    [SerializeField] Enums.Technology[] technology_give; //Убрать в абилку
-    [SerializeField] Enums.Science science_give; //Убрать в абилку
     [SerializeField] Structs.GameValueRequire[] require;  //Сокрыть ненужные поля в GameValueRequire для Inspector
     [SerializeField] CardAbility[] ability;
     
-    public string CardName
+    public byte ID
+    {
+        get
+        {
+            return id;
+        }
+        set
+        {
+            id = value;
+        }
+    }
+    public string Name
     {
         get
         {
@@ -45,11 +55,11 @@ public class ScriptableCard : ScriptableObject
             return age;
         }
     }
-    public Enums.CardType CardType
+    public Enums.CardType Type
     {
         get
         {
-            return card_type;
+            return type;
         }
     }
     public int NumOfPlayers

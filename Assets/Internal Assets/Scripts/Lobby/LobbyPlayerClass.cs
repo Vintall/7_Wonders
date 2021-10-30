@@ -1,6 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Класс игрока из лобби (информационный)
+/// </summary>
 public class LobbyPlayerClass
 {
     Photon.Realtime.Player network_player;

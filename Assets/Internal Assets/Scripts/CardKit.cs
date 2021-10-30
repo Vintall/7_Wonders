@@ -1,13 +1,37 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CardKit : MonoBehaviour
 {
+    #region SpaceBetweenCards
     [SerializeField, Range(0, 5)] float space_width;
     [SerializeField, Range(0, 3)] float space_height;
+    #endregion
+
     Vector2[] card_positions;
     bool is_kit_rolled_up = false;
+
+    public void AddCard(ScriptableCard new_card)
+    {
+        GameObject obj = PhotonNetwork.Instantiate("Card", Vector2.zero, Quaternion.identity);
+        obj.transform.parent = transform;
+        obj.GetComponent<Card>().CardData = new_card;
+        InitCardPositions();
+    }
+    public void InstantianeCardKit(List<ScriptableCard> cards)
+    {
+        DestroyAllCards();
+        for (int i = 0; i < cards.Count; i++)
+            AddCard(cards[i]);
+        InitCardPositions();
+    }
+    public void DestroyAllCards()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            Destroy(transform.GetChild(i).gameObject);
+    }
     public void InitCardPositions()
     {
         card_positions = new Vector2[transform.childCount];
@@ -73,11 +97,6 @@ public class CardKit : MonoBehaviour
     }
     void Start()
     {
-        //InitCardPositions();
-        ChangeKitState(false);
-    }
-    void Update()
-    {
-        
+        ChangeKitState(true);
     }
 }

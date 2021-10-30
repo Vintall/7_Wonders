@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Класс
+/// </summary>
 public class LobbyUI : MonoBehaviour
 {
     #region UI Fields And Properties
