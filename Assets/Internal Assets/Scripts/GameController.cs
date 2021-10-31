@@ -5,9 +5,10 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 
-public class GameController : MonoBehaviour, IOnEventCallback
+public class GameController : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     CardsForGame game_cards;
+    Structs.RoomPlayersHistory player_history;
     public class CardsForGame
     {
         public List<ScriptableCard> first_age;
@@ -21,9 +22,25 @@ public class GameController : MonoBehaviour, IOnEventCallback
             third_age = new List<ScriptableCard>();
         }
     }
+
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+    {
+        
+    }
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+        
+    }
     public void InitGame()
     {
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+        player_history = new Structs.RoomPlayersHistory();
+        
+        foreach(KeyValuePair<int, Photon.Realtime.Player> key in PhotonNetwork.CurrentRoom.Players)
+        {
+            player_history.AddPlayer(key.Value);
+        }
+
         if(PhotonNetwork.IsMasterClient)
         {
             //InitCardDeck();
@@ -90,10 +107,16 @@ public class GameController : MonoBehaviour, IOnEventCallback
             }
         }
         Transform[] game_object_card_kits = new Transform[PhotonNetwork.CurrentRoom.PlayerCount];
+        
+        int[] player_room_id = new int[PhotonNetwork.CurrentRoom.PlayerCount];
+        int player_int_key = 0;
+        foreach(KeyValuePair<int, Photon.Realtime.Player> key in PhotonNetwork.CurrentRoom.Players)
+            player_room_id[player_int_key++] = key.Value.ActorNumber;
+
         for (int i = 0; i < PhotonNetwork.CurrentRoom.PlayerCount; i++)
         {
             game_object_card_kits[i] = PhotonNetwork.Instantiate("CardKit", Vector3.zero, Quaternion.identity).transform;
-            game_object_card_kits[i].GetComponent<CardKit>().InstantianeCardKit(card_kits[i]);
+            //game_object_card_kits[i].GetComponent<CardKit>().InstantianeCardKit(card_kits[i]);
         }
 
         RaiseEventOptions raise_option = new RaiseEventOptions { Receivers = ReceiverGroup.All };
@@ -126,7 +149,7 @@ public class GameController : MonoBehaviour, IOnEventCallback
     {
         switch(photonEvent.Code)
         {
-            case 1: //CardKit generate code
+            case 1: //CardKit generate and transfer code
                 EventReceiveKits(photonEvent);
                 break;
         }
@@ -135,6 +158,18 @@ public class GameController : MonoBehaviour, IOnEventCallback
     {
         List<byte> serialised_card = new List<byte>();
         serialised_card = (List<byte>)photon_event.CustomData;
+        int kit_count = serialised_card.Count / 8;
 
+        List<List<ScriptableCard>> card_kits = new List<List<ScriptableCard>>();
+        for (int i = 0; i < kit_count; i++)
+            card_kits.Add(new List<ScriptableCard>());
+
+        for (int i = 0; i < kit_count; i++)
+        {
+            for (int j = 1; j < 8; j++)
+            {
+                card_kits[i].Add(GameData.instance.CardData.Cards[serialised_card[i * 7 + j]]);
+            }
+        }
     }
 }

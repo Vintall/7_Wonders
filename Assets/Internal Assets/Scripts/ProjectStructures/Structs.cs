@@ -71,4 +71,77 @@ public class Structs
             }
         }
     }
+    public class RoomPlayersHistory
+    {
+        List<PlayerActorId> players;
+        public RoomPlayersHistory() { }
+        public void AddPlayer(Photon.Realtime.Player player)
+        {
+            players.Add(new PlayerActorId(player));
+        }
+        //public Photon.Realtime.Player FindByActor(int actor)
+        //{
+        //    foreach (PlayerActorId i in players)
+        //    {
+        //        if (i.PlayerActorNumber == actor)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //        return null;
+        //}
+    }
+    public class PlayerActorId
+    {
+        int player_actor_number;
+        string player_id;
+        int controlled_data;
+        
+
+        public int PlayerActorNumber
+        {
+            get
+            {
+                return player_actor_number;
+            }
+            set
+            {
+                player_actor_number = value;
+            }
+        }
+        public string PlayerId
+        {
+            get
+            {
+                return player_id;
+            }
+            set
+            {
+                player_id = value;
+            }
+        }
+        public int ControlledData
+        {
+            get
+            {
+                return controlled_data;
+            }
+            set
+            {
+                controlled_data = value;
+            }
+        }
+
+        public PlayerActorId() { }
+        public PlayerActorId(int actor, string id)
+        {
+            PlayerActorNumber = actor;
+            PlayerId = id;
+        }
+        public PlayerActorId(Photon.Realtime.Player player)
+        {
+            PlayerActorNumber = player.ActorNumber;
+            PlayerId = player.UserId;
+        }
+    }
 }
